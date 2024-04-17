@@ -1,3 +1,5 @@
+package ru.netology.web;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -43,6 +45,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=phone] input ")).sendKeys("+79998887766");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
     }
+
     @Test
     void sendFormWithInvalidName() {
         driver.findElement(By.cssSelector("[data-test-id=name] input ")).sendKeys("Kolya Bylkin");
@@ -52,6 +55,7 @@ class CallbackTest {
         String text = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
         assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", text.trim());
     }
+
     @Test
     void sendFormWithInvalidPhoneNumber() {
         driver.findElement(By.cssSelector("[data-test-id=name] input ")).sendKeys("Николай Булкин");
