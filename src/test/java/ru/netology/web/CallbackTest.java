@@ -44,6 +44,8 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=name] input ")).sendKeys("Николай Булкин");
         driver.findElement(By.cssSelector("[data-test-id=phone] input ")).sendKeys("+79998887766");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
+        String text = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText();
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
     }
 
     @Test
