@@ -44,6 +44,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=name] input ")).sendKeys("Николай Булкин");
         driver.findElement(By.cssSelector("[data-test-id=phone] input ")).sendKeys("+79998887766");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
+        driver.findElement(By.cssSelector("[role=button]")).click();
         String text = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
     }
@@ -93,6 +94,7 @@ class CallbackTest {
     void sendFormWithValidNameAndPhoneNumberButEmptyCheckBox() {
         driver.findElement(By.cssSelector("[data-test-id=name] input ")).sendKeys("Николай Булкин");
         driver.findElement(By.cssSelector("[data-test-id=phone] input ")).sendKeys("+79998887766");
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("[role=button]")).click();
         String text = driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid .checkbox__text")).getText();
         assertEquals("Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй", text.trim());
